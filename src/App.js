@@ -12,6 +12,7 @@ import Education from "./sections/Education/Education";
 import Experience from "./sections/Experience/Experience";
 import Projects from "./sections/Projects/Projects";
 import Social from "./sections/Social/Social";
+import Website from "./sections/Website/Website"
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
           <Route exact path="/experience" component={Experience} />
           <Route exact path="/projects" component={Projects} />
           <Route exact path="/social" component={Social} />
+          <Route exact path="/website" component={Website} />
           <Route exact path="/" component={Dashboard} />
         </Switch>
       </BrowserRouter>

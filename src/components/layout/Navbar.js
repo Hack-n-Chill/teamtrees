@@ -18,7 +18,16 @@ const Navbar = ({ signOut, uid }) => {
       </ul>
       {/* --------------------------------------------------------- */}
       {uid && (
-        <NavLink to="/" className="nav-link text-white" activeStyle={style}>
+          <NavLink
+            to="/about"
+            className="nav-link text-white text-align-right"            
+            activeStyle={style}
+          >
+            Menu
+          </NavLink>
+        )}
+      {uid && (
+        <NavLink to="/website" className="nav-link text-white" activeStyle={style}>
           View Website
         </NavLink>
       )}
