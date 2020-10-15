@@ -254,4 +254,90 @@ export const addAbout = (task) => {
     };
   };
 
+  // ------------------------------------------------PROJ----------------------------
+
+  export const addProj = (task) => {
+    return (dispatch, getState, { getFirebase }) => {
+      const firestore = getFirebase().firestore();
+      const authorID = getState().firebase.auth.uid;
+      console.log(authorID, task);
+      firestore
+        .collection("proj")
+        .add({
+          ...task,
+          authorID,
+          date: new Date(),
+        })
+        .then(() => {
+          dispatch({
+            type: "ADD_PROJ",
+            payload: task,
+          });
+        })
+        .catch((err) => {
+          dispatch({
+            type: "ADD_PROJ_ERR",
+            payload: err,
+          });
+        });
+    };
+  };
+
+
+  export const updateProj = (id, task) => {
+    return (dispatch, getState, { getFirebase }) => {
+      const firestore = getFirebase().firestore();
+      console.log(task);
+
+      firestore
+        .collection("proj")
+        .doc(id)
+        .set(
+          {
+            ...task,
+            name: task.name,
+            tech: task.tech,
+            link: task.link,
+            summary: task.summary,
+            startDate: task.startDate,            
+          },
+          { merge: true }
+        )
+        .then(() => {
+          dispatch({
+            type: "UPDATE_PROJ",
+            payload: task,
+          });
+        })
+        .catch((err) => {
+          dispatch({
+            type: "UPDATE_PROJ_ERR",
+            payload: err,
+          });
+        });
+    };
+  };
+
+   export const removeProj = (id) => {
+    return (dispatch, getState, { getFirebase }) => {
+      const firestore = getFirebase().firestore();
+      firestore
+        .collection("proj")
+        .doc(id)
+        .delete()
+        .then(() => {
+          dispatch({
+            type: "REMOVE_PROJ",
+            payload: id,
+          });
+        })
+        .catch((err) => {
+          dispatch({
+            type: "REMOVE_PROJ_ERR",
+            payload: err,
+          });
+        });
+    };
+  };
+
   

@@ -1,13 +1,13 @@
 /* eslint react/no-multi-comp: 0, react/prop-types: 0 */
 
-import React, { useState} from "react";
+import React, { useState } from "react";
 
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import { connect } from "react-redux";
-import { removeExp } from "../../components/actions/taskActions";
+import { removeProj } from "../../components/actions/taskActions";
 
 const ModalExample = (props) => {
-  const { buttonLabel, className, data, removeExp } = props;
+  const { className, data, removeProj } = props;
 
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);
@@ -15,7 +15,7 @@ const ModalExample = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(data.id);
-    removeExp(data.id);
+    removeProj(data.id);
     toggle();
   };
 
@@ -33,7 +33,7 @@ const ModalExample = (props) => {
           Warning!
         </ModalHeader>         
         <ModalBody>
-          Are you sure you want to delete this Experience ?
+          Are you sure you want to delete this Project ?
         </ModalBody>
         <ModalFooter>
           <Button color="danger" onClick={handleSubmit}>
@@ -50,7 +50,7 @@ const ModalExample = (props) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    removeExp: (id) => dispatch(removeExp(id)),
+    removeProj: (id) => dispatch(removeProj(id)),
   };
 };
 
