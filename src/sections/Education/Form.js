@@ -6,7 +6,9 @@ const Form = ({ addEdu, data, uid, updateAbout }) => {
   const [instiname, setInstiname] = useState("");
   const [major, setMajor] = useState("");
   const [location, setLocation] = useState("");
-  const [summary, setSummary] = useState("");
+  const [summary, setSummary] = useState("");  
+  const [startDate, setStartDate] = useState("")
+  const [endDate, setEndDate] = useState("")
 
   const handleChange = (e) => {
     switch (e.target.id) {
@@ -22,6 +24,12 @@ const Form = ({ addEdu, data, uid, updateAbout }) => {
       case "summary":
         setSummary(e.target.value);
         return;
+      case "endDate":
+        setEndDate(e.target.value)
+        return
+      case "startDate":
+        setStartDate(e.target.value)
+        return
       default:
         return;
     }
@@ -30,13 +38,13 @@ const Form = ({ addEdu, data, uid, updateAbout }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log({ instiname, major, location, summary });
-    // if (data && data.length > 0) updateAbout({ data, fullname, summary });
-    // else
-    addEdu({ instiname, major, location, summary });
+    addEdu({ instiname, major, location, summary, startDate, endDate });
     setInstiname("");
     setLocation("");
     setMajor("");
     setSummary("");
+    setStartDate("")
+    setEndDate("")
   };
   return (
     <form
@@ -56,6 +64,35 @@ const Form = ({ addEdu, data, uid, updateAbout }) => {
         />
       </div>
 
+      <div className="form-inline my-1">
+        <div className="form-group mb-2">
+          <label htmlFor="location">
+            <h4>Start Year </h4>
+          </label>
+          <input
+            type="text"
+            className="form-control mx-2"
+            id="startDate"
+            style={{width: "30%"}}
+            value={startDate}
+            onChange={handleChange}
+          />
+        </div>
+    
+      <div className="form-group mb-2">
+        <label htmlFor="location">
+          <h4>End Year </h4>
+        </label>
+        <input
+          type="text"
+          className="form-control mx-2"
+          id="endDate"
+          style={{width: "30%"}}
+          value={endDate}
+          onChange={handleChange}
+        />
+      </div>
+      </div>
       <div className="form-group">
         <label htmlFor="location">
           <h4>Location </h4>
@@ -64,6 +101,7 @@ const Form = ({ addEdu, data, uid, updateAbout }) => {
           type="text"
           className="form-control"
           id="location"
+          style={{width: "75%"}}
           value={location}
           onChange={handleChange}
         />
@@ -77,6 +115,7 @@ const Form = ({ addEdu, data, uid, updateAbout }) => {
           type="text"
           className="form-control"
           id="major"
+          style={{width: "75%"}}
           value={major}
           onChange={handleChange}
         />

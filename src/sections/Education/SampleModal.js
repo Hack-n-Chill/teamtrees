@@ -16,6 +16,8 @@ const ModalExample = (props) => {
   const [majorModal, setMajor] = useState("")
   const [locationModal, setLocation] = useState("")
   const [summaryModal, setSummary] = useState("")
+  const [startDateModal, setStartDate] = useState("")
+  const [endDateModal, setEndDate] = useState("")
 
   useEffect(() => {
     console.log(data);
@@ -23,6 +25,8 @@ const ModalExample = (props) => {
       setMajor(data.major)
       setLocation(data.location)
       setSummary(data.summary)
+      setStartDate(data.startDate)
+      setEndDate(data.endDate)
   }, [data]);
 
   const handleChange = (e) => {
@@ -38,6 +42,12 @@ const ModalExample = (props) => {
         return
       case "summaryModal":
         setSummary(e.target.value)
+        return
+      case "startDateModal":
+        setStartDate(e.target.value)
+        return
+      case "endDateModal":
+        setEndDate(e.target.value)
         return      
       default:
         return;
@@ -46,8 +56,8 @@ const ModalExample = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(data.id, { instiname: instinameModal, major: majorModal, location: locationModal, summary: summaryModal });
-    updateEdu(data.id, { instiname: instinameModal, major: majorModal, location: locationModal, summary: summaryModal });
+    console.log(data.id, { instiname: instinameModal, major: majorModal, location: locationModal, summary: summaryModal, startDate: startDateModal, endDate: endDateModal });
+    updateEdu(data.id, { instiname: instinameModal, major: majorModal, location: locationModal, summary: summaryModal, startDate: startDateModal, endDate: endDateModal });
     toggle();
   };
 
@@ -73,21 +83,40 @@ const ModalExample = (props) => {
         <ModalBody>
           <textarea
             className="form-control"
-            id="majorModal"
-            rows="2"
-            value={majorModal}
-            onChange={handleChange}
-          ></textarea>
-        </ModalBody>
-        <ModalBody>
-          <textarea
-            className="form-control"
             id="locationModal"
             rows="2"
             value={locationModal}
             onChange={handleChange}
           ></textarea>
         </ModalBody>
+        <ModalBody>
+          <textarea
+            className="form-control"
+            id="startDateModal"
+            rows="1"
+            value={startDateModal}
+            onChange={handleChange}
+          ></textarea>
+        </ModalBody>
+        <ModalBody>
+          <textarea
+            className="form-control"
+            id="endDateModal"
+            rows="1"
+            value={endDateModal}
+            onChange={handleChange}
+          ></textarea>
+        </ModalBody>
+        <ModalBody>
+          <textarea
+            className="form-control"
+            id="majorModal"
+            rows="2"
+            value={majorModal}
+            onChange={handleChange}
+          ></textarea>
+        </ModalBody>
+        
         <ModalBody>
           <textarea
             className="form-control"

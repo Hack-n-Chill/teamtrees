@@ -12,6 +12,7 @@ const SubEdu = ({ data }) => {
       <ul className="list-group list-group-flush">        
         <li className="list-group-item">{data.instiname}</li>
         <li className="list-group-item">{data.location}</li>
+        <li className="list-group-item">{data.startDate} - {data.endDate}</li>
         <li className="list-group-item">{data.major}</li>
         <li className="list-group-item">{data.summary}</li>        
       </ul>
