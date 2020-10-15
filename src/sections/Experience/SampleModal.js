@@ -4,16 +4,16 @@ import React, { useState, useEffect } from "react";
 
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import { connect } from "react-redux";
-import { updateEdu } from "../../components/actions/taskActions";
+import { updateExp } from "../../components/actions/taskActions";
 
 const ModalExample = (props) => {
-  const { buttonLabel, className, data, updateEdu } = props;
+  const { buttonLabel, className, data, updateExp } = props;
 
   const [modal, setModal] = useState(false);
 
   const toggle = () => setModal(!modal);
-  const [instinameModal, setInstiname] = useState("")
-  const [majorModal, setMajor] = useState("")
+  const [companyModal, setCompany] = useState("")
+  const [designationModal, setDesignation] = useState("")
   const [locationModal, setLocation] = useState("")
   const [summaryModal, setSummary] = useState("")
   const [startDateModal, setStartDate] = useState("")
@@ -21,8 +21,8 @@ const ModalExample = (props) => {
 
   useEffect(() => {
     console.log(data);
-      setInstiname(data.instiname)
-      setMajor(data.major)
+      setCompany(data.company)
+      setDesignation(data.designation)
       setLocation(data.location)
       setSummary(data.summary)
       setStartDate(data.startDate)
@@ -31,14 +31,14 @@ const ModalExample = (props) => {
 
   const handleChange = (e) => {
     switch (e.target.id) {
-      case "instinameModal":
-        setInstiname(e.target.value)
+      case "companyModal":
+        setCompany(e.target.value)
         return
       case "locationModal":
         setLocation(e.target.value)
         return
-      case "majorModal":
-        setMajor(e.target.value)
+      case "designationModal":
+        setDesignation(e.target.value)
         return
       case "summaryModal":
         setSummary(e.target.value)
@@ -56,8 +56,8 @@ const ModalExample = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(data.id, { instiname: instinameModal, major: majorModal, location: locationModal, summary: summaryModal, startDate: startDateModal, endDate: endDateModal });
-    updateEdu(data.id, { instiname: instinameModal, major: majorModal, location: locationModal, summary: summaryModal, startDate: startDateModal, endDate: endDateModal });
+    console.log(data.id, { company: companyModal, designation: designationModal, location: locationModal, summary: summaryModal, startDate: startDateModal, endDate: endDateModal });
+    updateExp(data.id, { company: companyModal, designation: designationModal, location: locationModal, summary: summaryModal, startDate: startDateModal, endDate: endDateModal });
     toggle();
   };
 
@@ -72,17 +72,15 @@ const ModalExample = (props) => {
       </span>
       <Modal isOpen={modal} toggle={toggle} className={className}>
         <ModalHeader toggle={toggle}>
-          Institution
           <input
             type="text"
             className="form-control"
-            id="instinameModal"
-            value={instinameModal}
+            id="companyModal"
+            value={companyModal}
             onChange={handleChange}
           />
         </ModalHeader>
         <ModalBody>
-        <h5>Location</h5>
           <textarea
             className="form-control"
             id="locationModal"
@@ -92,7 +90,6 @@ const ModalExample = (props) => {
           ></textarea>
         </ModalBody>
         <ModalBody>
-        <h5>Start Date</h5>
           <textarea
             className="form-control"
             id="startDateModal"
@@ -102,7 +99,6 @@ const ModalExample = (props) => {
           ></textarea>
         </ModalBody>
         <ModalBody>
-        <h5>End Date</h5>
           <textarea
             className="form-control"
             id="endDateModal"
@@ -111,19 +107,18 @@ const ModalExample = (props) => {
             onChange={handleChange}
           ></textarea>
         </ModalBody>
+        
         <ModalBody>
-        <h5>Major</h5>
           <textarea
             className="form-control"
-            id="majorModal"
+            id="designationModal"
             rows="2"
-            value={majorModal}
+            value={designationModal}
             onChange={handleChange}
           ></textarea>
         </ModalBody>
         
         <ModalBody>
-        <h5>Summary</h5>
           <textarea
             className="form-control"
             id="summaryModal"
@@ -147,7 +142,7 @@ const ModalExample = (props) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    updateEdu: (id, task) => dispatch(updateEdu(id, task)),
+    updateExp: (id, task) => dispatch(updateExp(id, task)),
   };
 };
 

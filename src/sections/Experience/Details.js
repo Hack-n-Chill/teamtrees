@@ -3,31 +3,24 @@ import { connect } from "react-redux";
 import { compose } from "redux";
 import { firestoreConnect, isLoaded } from "react-redux-firebase";
 import Spinner1 from "../../components/Spinner/Spinner1";
-import SampleModal from "./SampleModal";
-import DeleteModal from "./DeleteModal"
+import SubExp from "./SubExp";
 
 const Details = ({ data }) => {
-  console.log("hi from about", data);
+  console.log(data);
   if (!isLoaded(data)) return <Spinner1 />;
   if (!(data && data.length > 0)) return null;
-
-  const toggleModal = () => {};
-
   return (
-    <div className="card m-2 p-2" style={{width: "75%"}}>     
-     
-     <div className=" card-header bg-dark text-white">Your Data <SampleModal data={data} /> <DeleteModal data={data} /> </div>        
-      <ul className="list-group list-group-flush">        
-      <li className="list-group-item"><h5>Full Name </h5><h3>{data[0].fullname}</h3></li>
-      <li className="list-group-item"><h5>Summary</h5> {data[0].summary}</li>        
-      </ul>
-    </div>
+    <>
+      {data &&
+        data.length > 0 &&
+        data.map((x) => <SubExp data={x} key={x.id} />)}
+    </>
   );
 };
 
 const mapStateToProps = (state) => {
   //   console.log(state);
-  const data = state.firestore.ordered.about;
+  const data = state.firestore.ordered.edu;
   const uid = state.firebase.auth.uid;
   return {
     data,
@@ -39,7 +32,7 @@ export default compose(
   connect(mapStateToProps),
   firestoreConnect((ownProps) => [
     {
-      collection: "about",
+      collection: "exp",
       where: ["authorID", "==", ownProps.uid],
       orderBy: ["date", "desc"],
     },

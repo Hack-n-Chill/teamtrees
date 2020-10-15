@@ -25,28 +25,6 @@ export const addAbout = (task) => {
     };
   };
   
-  // export const removeTask = (task) => {
-  //   return (dispatch, getState, { getFirebase }) => {
-  //     const firestore = getFirebase().firestore();
-  //     firestore
-  //       .collection("tasks")
-  //       .doc(task.id)
-  //       .delete()
-  //       .then(() => {
-  //         dispatch({
-  //           type: "REMOVE_TASK",
-  //           payload: task,
-  //         });
-  //       })
-  //       .catch((err) => {
-  //         dispatch({
-  //           type: "REMOVE_TASK_ERR",
-  //           payload: err,
-  //         });
-  //       });
-  //   };
-  // };
-  
   export const updateAbout = (task) => {
     return (dispatch, getState, { getFirebase }) => {
       const firestore = getFirebase().firestore();
@@ -103,6 +81,7 @@ export const addAbout = (task) => {
     };
   };
   
+  // ----------------------------------------------------------EDU------------------------
   
   export const addEdu = (task) => {
     return (dispatch, getState, { getFirebase }) => {
@@ -145,7 +124,9 @@ export const addAbout = (task) => {
             instiname: task.instiname,
             location: task.location,
             major: task.major,
-            summary: task.summary
+            summary: task.summary,
+            startDate: task.startDate,
+            endDate: task.endDate
           },
           { merge: true }
         )
@@ -185,4 +166,92 @@ export const addAbout = (task) => {
         });
     };
   };
+  // -----------------------------------------------EXP------------------------------------
+
+
+  export const addExp = (task) => {
+    return (dispatch, getState, { getFirebase }) => {
+      const firestore = getFirebase().firestore();
+      const authorID = getState().firebase.auth.uid;
+      console.log(authorID, task);
+      firestore
+        .collection("exp")
+        .add({
+          ...task,
+          authorID,
+          date: new Date(),
+        })
+        .then(() => {
+          dispatch({
+            type: "ADD_EXP",
+            payload: task,
+          });
+        })
+        .catch((err) => {
+          dispatch({
+            type: "ADD_EXP_ERR",
+            payload: err,
+          });
+        });
+    };
+  };
+
+
+  export const updateExp = (id, task) => {
+    return (dispatch, getState, { getFirebase }) => {
+      const firestore = getFirebase().firestore();
+      console.log(task);
+
+      firestore
+        .collection("exp")
+        .doc(id)
+        .set(
+          {
+            ...task,
+            company: task.company,
+            location: task.location,
+            designation: task.designation,
+            summary: task.summary,
+            startDate: task.startDate,
+            endDate: task.endDate
+          },
+          { merge: true }
+        )
+        .then(() => {
+          dispatch({
+            type: "UPDATE_EXP",
+            payload: task,
+          });
+        })
+        .catch((err) => {
+          dispatch({
+            type: "UPDATE_EXP_ERR",
+            payload: err,
+          });
+        });
+    };
+  };
+
+   export const removeExp = (id) => {
+    return (dispatch, getState, { getFirebase }) => {
+      const firestore = getFirebase().firestore();
+      firestore
+        .collection("exp")
+        .doc(id)
+        .delete()
+        .then(() => {
+          dispatch({
+            type: "REMOVE_EXP",
+            payload: id,
+          });
+        })
+        .catch((err) => {
+          dispatch({
+            type: "REMOVE_EXP_ERR",
+            payload: err,
+          });
+        });
+    };
+  };
+
   

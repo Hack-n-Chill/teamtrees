@@ -39,6 +39,25 @@ export const taskReducer = (state = {}, action) => {
     case "REMOVE_EDU_ERR":
       toast.error("Error while updating EDU!");
       return state;
+    case "ADD_EXP":
+      toast.success("Added the EXP Section success!");
+      return state;
+    case "ADD_EXP_ERR":
+      toast.error("Error while adding EXP!");
+      console.log(action.payload);
+      return state;
+    case "UPDATE_EXP":
+      toast.success("Updated EXP Section success!");
+      return state;
+    case "UPDATE_EXP_ERR":
+      toast.error("Error while Updating EXP!");
+      return state;
+    case "REMOVE_EXP":
+      toast.warning("Deleted the EXP Section success!");
+      return state;
+    case "REMOVE_EXP_ERR":
+      toast.error("Error while updating EXP!");
+      return state;
     default:
       return state;
   }

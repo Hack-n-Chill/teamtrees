@@ -52,6 +52,7 @@ const ModalExample = (props) => {
       </span>
       <Modal isOpen={modal} toggle={toggle} className={className}>
         <ModalHeader toggle={toggle}>
+          Full Name
           <input
             type="text"
             className="form-control"
@@ -61,6 +62,7 @@ const ModalExample = (props) => {
           />
         </ModalHeader>
         <ModalBody>
+          <h5>Summary</h5>
           <textarea
             className="form-control"
             id="summaryModal"

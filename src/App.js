@@ -9,6 +9,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import About from "./sections/About/About";
 import Education from "./sections/Education/Education";
+import Experience from "./sections/Experience/Experience";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Route exact path="/signup" component={SignUp} />
           <Route exact path="/about" component={About} />
           <Route exact path="/education" component={Education} />
+          <Route exact path="/experience" component={Experience} />
           <Route exact path="/" component={Dashboard} />
         </Switch>
       </BrowserRouter>
