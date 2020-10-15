@@ -42,9 +42,9 @@ const ModalExample = (props) => {
   };
 
   return (
-    <div>
+    <>
       <span
-        className="material-icons text-warning"
+        className="material-icons mx-2 text-warning"
         style={{ cursor: "pointer" }}
         onClick={toggle}
       >
@@ -70,7 +70,7 @@ const ModalExample = (props) => {
           ></textarea>
         </ModalBody>
         <ModalFooter>
-          <Button color="primary" onClick={handleSubmit}>
+          <Button color="warning" onClick={handleSubmit}>
             Update
           </Button>{" "}
           <Button color="secondary" onClick={toggle}>
@@ -78,7 +78,7 @@ const ModalExample = (props) => {
           </Button>
         </ModalFooter>
       </Modal>
-    </div>
+    </>
   );
 };
 

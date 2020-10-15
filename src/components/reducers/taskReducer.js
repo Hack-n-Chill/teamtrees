@@ -15,11 +15,29 @@ export const taskReducer = (state = {}, action) => {
     case "UPDATE_ABOUT_ERR":
       toast.error("Error while Updating About!");
       return state;
+    case "REMOVE_ABOUT":
+      toast.warning("Deleted the About Section success!");
+      return state;
+    case "REMOVE_ABOUT_ERR":
+      toast.error("Error while updating About!");
+      return state;
     case "ADD_EDU":
       toast.success("Added the EDU Section success!");
       return state;
     case "ADD_EDU_ERR":
       toast.error("Error while adding EDU!");
+      return state;
+    case "UPDATE_EDU":
+      toast.success("Updated the EDU Section success!");
+      return state;
+    case "UPDATE_EDU_ERR":
+      toast.error("Error while updating EDU!");
+      return state;
+    case "REMOVE_EDU":
+      toast.warning("Deleted the EDU Section success!");
+      return state;
+    case "REMOVE_EDU_ERR":
+      toast.error("Error while updating EDU!");
       return state;
     default:
       return state;

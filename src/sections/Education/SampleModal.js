@@ -4,31 +4,41 @@ import React, { useState, useEffect } from "react";
 
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import { connect } from "react-redux";
-import { updateAbout } from "../../components/actions/taskActions";
+import { updateEdu } from "../../components/actions/taskActions";
 
 const ModalExample = (props) => {
-  const { buttonLabel, className, data, updateAbout } = props;
+  const { buttonLabel, className, data, updateEdu } = props;
 
   const [modal, setModal] = useState(false);
 
   const toggle = () => setModal(!modal);
-  const [fullnameModal, setFullname] = useState("");
-  const [summaryModal, setSummary] = useState("");
+  const [instinameModal, setInstiname] = useState("")
+  const [majorModal, setMajor] = useState("")
+  const [locationModal, setLocation] = useState("")
+  const [summaryModal, setSummary] = useState("")
 
-//   useEffect(() => {
-//     console.log(data);
-//     setFullname(data[0].fullname);
-//     setSummary(data[0].summary);
-//   }, [data]);
+  useEffect(() => {
+    console.log(data);
+      setInstiname(data.instiname)
+      setMajor(data.major)
+      setLocation(data.location)
+      setSummary(data.summary)
+  }, [data]);
 
   const handleChange = (e) => {
     switch (e.target.id) {
-      case "fullnameModal":
-        setFullname(e.target.value);
-        return;
+      case "instinameModal":
+        setInstiname(e.target.value)
+        return
+      case "locationModal":
+        setLocation(e.target.value)
+        return
+      case "majorModal":
+        setMajor(e.target.value)
+        return
       case "summaryModal":
-        setSummary(e.target.value);
-        return;
+        setSummary(e.target.value)
+        return      
       default:
         return;
     }
@@ -36,15 +46,15 @@ const ModalExample = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // console.log({ data, fullname: fullnameModal, summary: summaryModal });
-    // updateAbout({ data, fullname: fullnameModal, summary: summaryModal });
+    console.log(data.id, { instiname: instinameModal, major: majorModal, location: locationModal, summary: summaryModal });
+    updateEdu(data.id, { instiname: instinameModal, major: majorModal, location: locationModal, summary: summaryModal });
     toggle();
   };
 
   return (
-    <div>
+    <>
       <span
-        className="material-icons text-warning"
+        className="material-icons text-warning mx-2"
         style={{ cursor: "pointer" }}
         onClick={toggle}
       >
@@ -55,11 +65,29 @@ const ModalExample = (props) => {
           <input
             type="text"
             className="form-control"
-            id="fullnameModal"
-            value={fullnameModal}
+            id="instinameModal"
+            value={instinameModal}
             onChange={handleChange}
           />
         </ModalHeader>
+        <ModalBody>
+          <textarea
+            className="form-control"
+            id="majorModal"
+            rows="2"
+            value={majorModal}
+            onChange={handleChange}
+          ></textarea>
+        </ModalBody>
+        <ModalBody>
+          <textarea
+            className="form-control"
+            id="locationModal"
+            rows="2"
+            value={locationModal}
+            onChange={handleChange}
+          ></textarea>
+        </ModalBody>
         <ModalBody>
           <textarea
             className="form-control"
@@ -70,7 +98,7 @@ const ModalExample = (props) => {
           ></textarea>
         </ModalBody>
         <ModalFooter>
-          <Button color="primary" onClick={handleSubmit}>
+          <Button color="warning" onClick={handleSubmit}>
             Update
           </Button>{" "}
           <Button color="secondary" onClick={toggle}>
@@ -78,13 +106,13 @@ const ModalExample = (props) => {
           </Button>
         </ModalFooter>
       </Modal>
-    </div>
+    </>
   );
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    updateAbout: (task) => dispatch(updateAbout(task)),
+    updateEdu: (id, task) => dispatch(updateEdu(id, task)),
   };
 };
 

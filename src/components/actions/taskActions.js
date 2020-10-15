@@ -80,6 +80,29 @@ export const addAbout = (task) => {
         });
     };
   };
+
+  export const removeAbout = (id) => {
+    return (dispatch, getState, { getFirebase }) => {
+      const firestore = getFirebase().firestore();
+      firestore
+        .collection("about")
+        .doc(id)
+        .delete()
+        .then(() => {
+          dispatch({
+            type: "REMOVE_ABOUT",
+            payload: id,
+          });
+        })
+        .catch((err) => {
+          dispatch({
+            type: "REMOVE_ABOUT_ERR",
+            payload: err,
+          });
+        });
+    };
+  };
+  
   
   export const addEdu = (task) => {
     return (dispatch, getState, { getFirebase }) => {
@@ -108,34 +131,55 @@ export const addAbout = (task) => {
     };
   };
   
-  export const updateEdu = (task) => {
+  export const updateEdu = (id, task) => {
     return (dispatch, getState, { getFirebase }) => {
       const firestore = getFirebase().firestore();
       console.log(task);
-      const newdata = {
-        fullname: task.fullname,
-        summary: task.summary,
-      };
+
       firestore
-        .collection("about")
-        .doc(task.data[0].id)
+        .collection("edu")
+        .doc(id)
         .set(
           {
-            ...newdata,
-            fullname: newdata.fullname,
-            summary: newdata.summary,
+            ...task,
+            instiname: task.instiname,
+            location: task.location,
+            major: task.major,
+            summary: task.summary
           },
           { merge: true }
         )
         .then(() => {
           dispatch({
-            type: "UPDATE_ABOUT",
+            type: "UPDATE_EDU",
             payload: task,
           });
         })
         .catch((err) => {
           dispatch({
-            type: "UPDATE_ABOUT_ERR",
+            type: "UPDATE_EDU_ERR",
+            payload: err,
+          });
+        });
+    };
+  };
+
+   export const removeEdu = (id) => {
+    return (dispatch, getState, { getFirebase }) => {
+      const firestore = getFirebase().firestore();
+      firestore
+        .collection("edu")
+        .doc(id)
+        .delete()
+        .then(() => {
+          dispatch({
+            type: "REMOVE_EDU",
+            payload: id,
+          });
+        })
+        .catch((err) => {
+          dispatch({
+            type: "REMOVE_EDU_ERR",
             payload: err,
           });
         });

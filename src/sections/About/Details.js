@@ -4,6 +4,7 @@ import { compose } from "redux";
 import { firestoreConnect, isLoaded } from "react-redux-firebase";
 import Spinner1 from "../../components/Spinner/Spinner1";
 import SampleModal from "./SampleModal";
+import DeleteModal from "./DeleteModal"
 
 const Details = ({ data }) => {
   console.log("hi from about", data);
@@ -13,19 +14,13 @@ const Details = ({ data }) => {
   const toggleModal = () => {};
 
   return (
-    <div className="card">
-      <div className="card-header bg-dark text-white">Your Data</div>
-      <div className="card-body">
-        <div className="row">
-          <div className="col col-lg-10">
-            <h5 className="card-title">{data[0].fullname}</h5>
-            <p className="card-text">{data[0].summary}</p>
-          </div>
-          <div className="col col-lg-2">
-            <SampleModal data={data} />
-          </div>
-        </div>
-      </div>
+    <div className="card m-2 p-2" style={{width: "75%"}}>     
+     
+     <div className=" card-header bg-dark text-white">Your Data <SampleModal data={data} /> <DeleteModal data={data} /> </div>        
+      <ul className="list-group list-group-flush">        
+      <li className="list-group-item"><h3>{data[0].fullname}</h3></li>
+      <li className="list-group-item">{data[0].summary}</li>        
+      </ul>
     </div>
   );
 };
