@@ -1,13 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
 import { compose } from "redux";
-import { firestoreConnect, isLoaded } from "react-redux-firebase";
+import { firestoreConnect, isLoaded, isEmpty } from "react-redux-firebase";
 import Spinner1 from "../../components/Spinner/Spinner1";
 import SubExp from "./SubExp";
 
 const Details = ({ data }) => {
   console.log(data);
   if (!isLoaded(data)) return <Spinner1 />;
+  if(isEmpty(data)) return <div>No records found!</div>;
   if (!(data && data.length > 0)) return null;
   return (
     <>
@@ -20,7 +21,7 @@ const Details = ({ data }) => {
 
 const mapStateToProps = (state) => {
   //   console.log(state);
-  const data = state.firestore.ordered.edu;
+  const data = state.firestore.ordered.exp;
   const uid = state.firebase.auth.uid;
   return {
     data,

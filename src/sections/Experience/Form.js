@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { addExp, updateExp } from "../../components/actions/taskActions";
+import { addExp } from "../../components/actions/taskActions";
 import { connect } from "react-redux";
 
-const Form = ({ addExp, data, uid, updateExp }) => {
+const Form = ({ addExp, data, uid }) => {
   const [company, setCompany] = useState("")
   const [designation, setDesignation] = useState("")
   const [location, setLocation] = useState("");    

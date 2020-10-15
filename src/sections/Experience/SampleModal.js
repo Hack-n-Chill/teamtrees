@@ -72,6 +72,7 @@ const ModalExample = (props) => {
       </span>
       <Modal isOpen={modal} toggle={toggle} className={className}>
         <ModalHeader toggle={toggle}>
+          Company
           <input
             type="text"
             className="form-control"
@@ -81,6 +82,7 @@ const ModalExample = (props) => {
           />
         </ModalHeader>
         <ModalBody>
+        <h5>Location</h5>
           <textarea
             className="form-control"
             id="locationModal"
@@ -90,6 +92,7 @@ const ModalExample = (props) => {
           ></textarea>
         </ModalBody>
         <ModalBody>
+        <h5>Start Date</h5>
           <textarea
             className="form-control"
             id="startDateModal"
@@ -99,6 +102,7 @@ const ModalExample = (props) => {
           ></textarea>
         </ModalBody>
         <ModalBody>
+        <h5>End Date</h5>
           <textarea
             className="form-control"
             id="endDateModal"
@@ -109,6 +113,7 @@ const ModalExample = (props) => {
         </ModalBody>
         
         <ModalBody>
+        <h5>Designation</h5>
           <textarea
             className="form-control"
             id="designationModal"
@@ -119,6 +124,7 @@ const ModalExample = (props) => {
         </ModalBody>
         
         <ModalBody>
+        <h5>Work</h5>
           <textarea
             className="form-control"
             id="summaryModal"
