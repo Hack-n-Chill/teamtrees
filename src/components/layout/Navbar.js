@@ -24,12 +24,12 @@ const Navbar = ({ signOut, uid }) => {
       )}
       <ul className="navbar-nav">
         {!uid && (
-          <NavLink to="/signin" className="nav-link text-white">
+          <NavLink to="/signin" className="nav-link text-white" activeStyle={style}>
             Sign In
           </NavLink>
         )}
         {!uid && (
-          <Link to="/signup" className="nav-link text-white">
+          <Link to="/signup" className="nav-link text-white" activeStyle={style}>
             Sign Up
           </Link>
         )}
@@ -38,6 +38,7 @@ const Navbar = ({ signOut, uid }) => {
             to="/signin"
             className="nav-link text-white text-align-right"
             onClick={signOut}
+            activeStyle={style}
           >
             Sign Out
           </Link>

@@ -45,15 +45,6 @@ const Sidenav = () => {
         </li>
         <li>
           <NavLink
-            to="/skills"
-            className="nav-link text-white"
-            activeStyle={style}
-          >
-            Skills
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
             to="/projects"
             className="nav-link text-white"
             activeStyle={style}
@@ -61,13 +52,23 @@ const Sidenav = () => {
             Projects
           </NavLink>
         </li>
-        <li>
+        {/* <li>
           <NavLink
-            to="/contacts"
+            to="/skills"
             className="nav-link text-white"
             activeStyle={style}
           >
-            Contacts
+            Skills
+          </NavLink>
+        </li> */}
+        
+        <li>
+          <NavLink
+            to="/social"
+            className="nav-link text-white"
+            activeStyle={style}
+          >
+            Social
           </NavLink>
         </li>
       </ul>

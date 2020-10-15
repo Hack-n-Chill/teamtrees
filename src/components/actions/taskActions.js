@@ -340,4 +340,85 @@ export const addAbout = (task) => {
     };
   };
 
-  
+  // ------------------------------SOCIAL---------------------------------
+
+  export const addSocial = (task) => {
+    return (dispatch, getState, { getFirebase }) => {
+      const firestore = getFirebase().firestore();
+      const authorID = getState().firebase.auth.uid;
+      console.log(authorID, task);
+      firestore
+        .collection("social")
+        .add({
+          ...task,
+          authorID,
+          date: new Date(),
+        })
+        .then(() => {
+          dispatch({
+            type: "ADD_SOCIAL",
+            payload: task,
+          });
+        })
+        .catch((err) => {
+          dispatch({
+            type: "ADD_SOCIAL_ERR",
+            payload: err,
+          });
+        });
+    };
+  };
+
+
+  export const updateSocial = (id, task) => {
+    return (dispatch, getState, { getFirebase }) => {
+      const firestore = getFirebase().firestore();
+      console.log(task);
+
+      firestore
+        .collection("social")
+        .doc(id)
+        .set(
+          {
+            ...task,
+            name: task.name,            
+            link: task.link,                        
+          },
+          { merge: true }
+        )
+        .then(() => {
+          dispatch({
+            type: "UPDATE_SOCIAL",
+            payload: task,
+          });
+        })
+        .catch((err) => {
+          dispatch({
+            type: "UPDATE_SOCIAL_ERR",
+            payload: err,
+          });
+        });
+    };
+  };
+
+   export const removeSocial = (id) => {
+    return (dispatch, getState, { getFirebase }) => {
+      const firestore = getFirebase().firestore();
+      firestore
+        .collection("social")
+        .doc(id)
+        .delete()
+        .then(() => {
+          dispatch({
+            type: "REMOVE_SOCIAL",
+            payload: id,
+          });
+        })
+        .catch((err) => {
+          dispatch({
+            type: "REMOVE_SOCIAL_ERR",
+            payload: err,
+          });
+        });
+    };
+  };
