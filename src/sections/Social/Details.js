@@ -4,12 +4,12 @@ import { compose } from "redux";
 import { firestoreConnect, isLoaded, isEmpty } from "react-redux-firebase";
 import Generic from "../../components/Spinner/Generic"
 import SubSocial from "./SubSocial";
+import {Alert} from "reactstrap"
 
 const Details = ({ data }) => {
   console.log(data);
-  if (!isLoaded(data)) return <Generic />;
-  if(isEmpty(data)) return <div>No records found!</div>;
-  if (!(data && data.length > 0)) return null;
+  if (!isLoaded(data)) return <Generic />;  
+  if (!(data && data.length > 0)) return <Alert color="danger"> No records to show! </Alert>;
   return (
     <>
       {data &&

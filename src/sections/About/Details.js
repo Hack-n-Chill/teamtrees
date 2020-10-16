@@ -6,11 +6,13 @@ import SampleModal from "./SampleModal";
 import DeleteModal from "./DeleteModal"
 
 import Generic from "../../components/Spinner/Generic"
+import {Alert} from "reactstrap"
 
 const Details = ({ data }) => {
   console.log("hi from about", data);
   if (!isLoaded(data)) return <Generic />;
-  if (!(data && data.length > 0)) return null;
+  if (!(data && data.length > 0)) 
+  return <Alert color="danger"> No records to show! </Alert>;
 
   return (
     <div className="card m-2 p-2" style={{width: "75%"}}>     
