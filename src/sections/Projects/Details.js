@@ -2,12 +2,12 @@ import React from "react";
 import { connect } from "react-redux";
 import { compose } from "redux";
 import { firestoreConnect, isLoaded, isEmpty } from "react-redux-firebase";
-import Spinner1 from "../../components/Spinner/Spinner1";
+import Generic from "../../components/Spinner/Generic"
 import SubProj from "./SubProj";
 
 const Details = ({ data }) => {
   console.log(data);
-  if (!isLoaded(data)) return <Spinner1 />;
+  if (!isLoaded(data)) return <Generic />;
   if(isEmpty(data)) return <div>No records found!</div>;
   if (!(data && data.length > 0)) return null;
   return (

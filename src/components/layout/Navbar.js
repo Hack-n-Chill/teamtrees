@@ -12,9 +12,9 @@ const Navbar = ({ signOut, uid }) => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <ul className="navbar-nav mr-auto">
-        <Link to="/">
+        
           <h3 className="navbar-brand">PORTFOLIOFY</h3>
-        </Link>
+        
       </ul>
       {/* --------------------------------------------------------- */}
       {uid && (

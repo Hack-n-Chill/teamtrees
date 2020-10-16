@@ -3,10 +3,10 @@ import { toast } from "react-toastify";
 export const authReducer = (state = {}, action) => {
   switch (action.type) {
     case "SIGN_IN":
-      toast.success("Welcome ");
+      toast.success("Welcome back to Portfoliofy! :)");
       return state;
     case "SIGN_IN_ERR":
-      toast.error("Error !");
+      toast.error("Error Signing In :(");
       return state;
     case "SIGN_OUT":
       toast("Signed Out ");
@@ -14,7 +14,7 @@ export const authReducer = (state = {}, action) => {
     case "SIGN_OUT_ERR":
       toast.error("Error !");
     case "SIGN_UP":
-      toast("Welcome new user !");
+      toast("Welcome to Portofoliofy !");
       return state;
     case "SIGN_UP_ERR":
       toast.error("Error !");

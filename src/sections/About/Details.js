@@ -2,16 +2,15 @@ import React from "react";
 import { connect } from "react-redux";
 import { compose } from "redux";
 import { firestoreConnect, isLoaded } from "react-redux-firebase";
-import Spinner1 from "../../components/Spinner/Spinner1";
 import SampleModal from "./SampleModal";
 import DeleteModal from "./DeleteModal"
 
+import Generic from "../../components/Spinner/Generic"
+
 const Details = ({ data }) => {
   console.log("hi from about", data);
-  if (!isLoaded(data)) return <Spinner1 />;
+  if (!isLoaded(data)) return <Generic />;
   if (!(data && data.length > 0)) return null;
-
-  const toggleModal = () => {};
 
   return (
     <div className="card m-2 p-2" style={{width: "75%"}}>     

@@ -13,9 +13,9 @@ const Sidenav = () => {
       style={{ height: "100%" }}
     >
       <ul className="nav navbar-nav">
-        <NavLink to="/" className="navbar-brand text-white">
-          <h3>Sections</h3>
-        </NavLink>
+        
+          <h3 className="navbar-brand text-white">Sections</h3>
+        
         <li>
           <NavLink
             to="/about"
