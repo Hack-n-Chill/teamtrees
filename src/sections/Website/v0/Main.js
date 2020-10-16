@@ -7,11 +7,13 @@ import { firestoreConnect, isLoaded } from "react-redux-firebase";
 import Spinner1 from '../../../components/Spinner/Spinner1';
 import About from './About';
 import Education from './Education';
+import Experience from './Experience';
+import Projects from './Projects';
 
 const Main = ({dataAbout, dataEdu, dataExp, dataProj, dataSocial}) => {
     if(!isLoaded(dataSocial)) return <Spinner1 />
     // console.log(dataAbout, dataEdu, dataExp, dataProj, dataSocial)
-    console.log(dataEdu)
+    console.log(dataProj)
     return (
         <>
         <NavbarExample info={dataAbout} />
@@ -19,8 +21,10 @@ const Main = ({dataAbout, dataEdu, dataExp, dataProj, dataSocial}) => {
         <div className="container">
         <About info={dataAbout} />
         <Education info={dataEdu}/>
+        <Experience info={dataExp}/>
+        <Projects info={dataProj}/>
         </div>        
-        
+
         </>
     )
 }

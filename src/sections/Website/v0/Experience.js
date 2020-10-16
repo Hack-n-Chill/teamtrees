@@ -1,12 +1,12 @@
 import React from 'react'
-import CardsEdu from "./CardsEdu"
+import CardsExp from "./CardsExp"
 import {Button} from "reactstrap"
 
 const Education = ({info}) => {
     return (
         <>
-        <Button color="dark" className="mb-1">Education</Button>
-         <CardsEdu info={info}/>
+        <Button color="success" className="mb-1 mt-1">Experience</Button>
+         <CardsExp info={info}/>
          </>
     )
 }
