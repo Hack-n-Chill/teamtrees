@@ -7,7 +7,7 @@ const Navbar = ({ signOut, uid }) => {
   const style = {
     fontWeight: "bold",
     color: "green",
-    borderBottom: "5px solid #5bc0eb",
+    borderBottom: "5px solid #7289DA",
   };
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">

@@ -5,7 +5,7 @@ const Sidenav = () => {
   const style = {
     fontWeight: "bold",
     color: "green",
-    borderBottom: "5px solid #5bc0eb",
+    borderBottom: "5px solid #7289DA",
   };
   return (
     <div
