@@ -7,7 +7,7 @@ import { connect } from "react-redux";
 import { updateExp } from "../../components/actions/taskActions";
 
 const ModalExample = (props) => {
-  const { buttonLabel, className, data, updateExp } = props;
+  const { className, data, updateExp } = props;
 
   const [modal, setModal] = useState(false);
 

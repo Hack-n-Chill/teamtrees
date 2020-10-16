@@ -15,6 +15,8 @@ const SignUp = ({ signUp, uid }) => {
       case "password":
         setPassword(e.target.value);
         return;
+      default:
+        return
     }
   };
 
@@ -28,9 +30,10 @@ const SignUp = ({ signUp, uid }) => {
   else
     return (
       <form
-        className="container text border border-light p-5 mt-2 bg-light"
+        className="container text border border-light p-5 mt-2 text-white"
         autoComplete="off"
         onSubmit={handleSubmit}
+        style={{width: "50%", backgroundColor: "#2C2F33"}}
       >
         <label>
           <h4>Sign Up</h4>
@@ -55,7 +58,7 @@ const SignUp = ({ signUp, uid }) => {
             onChange={handleChange}
           />
         </div>
-        <button type="submit" className="btn btn-dark">
+        <button type="submit" className="btn btn-dark" style={{backgroundColor: "#7289DA", color: "white"}}>
           Register
         </button>
       </form>

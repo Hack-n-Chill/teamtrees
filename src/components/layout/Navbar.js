@@ -38,9 +38,9 @@ const Navbar = ({ signOut, uid }) => {
           </NavLink>
         )}
         {!uid && (
-          <Link to="/signup" className="nav-link text-white" activeStyle={style}>
+          <NavLink to="/signup" className="nav-link text-white" activeStyle={style}>
             Sign Up
-          </Link>
+          </NavLink>
         )}
         {uid && (
           <Link
@@ -53,45 +53,6 @@ const Navbar = ({ signOut, uid }) => {
           </Link>
         )}
       </ul>
-
-      {/* <ul class="navbar-nav">
-        <li class="nav-item">
-          {!uid && (
-            <Link to="/signin" className="nav-link text-white">
-              Sign In
-            </Link>
-          )}
-        </li>
-        <li class="nav-item">
-          {!uid && (
-            <Link to="/signup" className="nav-link text-white">
-              Sign Up
-            </Link>
-          )}
-        </li>
-      </ul> */}
-      {/* <Link to="/">
-        <h3 className="navbar-brand">PORTFOLIOFY</h3>
-      </Link>
-      {!uid && (
-        <Link to="/signin" className="nav-link text-white">
-          Sign In
-        </Link>
-      )}
-      {!uid && (
-        <Link to="/signup" className="nav-link text-white">
-          Sign Up
-        </Link>
-      )}
-      {uid && (
-        <Link
-          to="/signin"
-          className="nav-link text-white text-align-right"
-          onClick={signOut}
-        >
-          Sign Out
-        </Link>
-      )} */}
     </nav>
   );
 };

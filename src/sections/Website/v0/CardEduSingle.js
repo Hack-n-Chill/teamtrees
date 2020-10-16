@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Button, CardHeader, CardFooter, CardBody,
+import { Card, CardHeader,CardBody,
     CardTitle, CardText } from 'reactstrap';
 const CardEduSingle = ({info}) => {
     const {instiname, startDate, endDate, location, major, summary} = info

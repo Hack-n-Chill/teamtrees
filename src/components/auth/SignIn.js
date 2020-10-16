@@ -15,6 +15,8 @@ const SignIn = ({ signIn, uid }) => {
       case "password":
         setPassword(e.target.value);
         return;
+      default:
+        return
     }
   };
 
@@ -27,10 +29,12 @@ const SignIn = ({ signIn, uid }) => {
   if (uid) return <Redirect to="/about" />;
   else
     return (
+      <div>
       <form
-        className="container text border border-light p-5 mt-2 bg-light"
+        className="container text border border-light p-5 mt-2 text-white"
         autoComplete="off"
         onSubmit={handleSubmit}
+        style={{width: "50%", backgroundColor: "#2C2F33"}}
       >
         <label>
           <h4>Sign In</h4>
@@ -55,10 +59,11 @@ const SignIn = ({ signIn, uid }) => {
             onChange={handleChange}
           />
         </div>
-        <button type="submit" className="btn btn-dark">
+        <button type="submit" className="btn" style={{backgroundColor: "#7289DA", color: "white"}}>
           Log In
         </button>
       </form>
+      </div>
     );
 };
 

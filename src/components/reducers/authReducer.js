@@ -13,11 +13,13 @@ export const authReducer = (state = {}, action) => {
       return state;
     case "SIGN_OUT_ERR":
       toast.error("Error !");
+      return state
     case "SIGN_UP":
       toast("Welcome to Portofoliofy !");
       return state;
     case "SIGN_UP_ERR":
       toast.error("Error !");
+      return state
     default:
       return state;
   }

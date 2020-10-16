@@ -1,13 +1,13 @@
 /* eslint react/no-multi-comp: 0, react/prop-types: 0 */
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import { connect } from "react-redux";
 import { removeAbout } from "../../components/actions/taskActions";
 
 const ModalExample = (props) => {
-  const { buttonLabel, className, data, removeAbout } = props;
+  const { className, data, removeAbout } = props;
 
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);

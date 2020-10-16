@@ -1,8 +1,6 @@
 import React from 'react'
-import {Link, useHistory} from "react-router-dom"
 
-const Jumbotron = () => {
-    const history = useHistory()
+const Jumbotron = () => {    
     return (
       <div class="card" style="width: 18rem;">
         <div class="card-body">

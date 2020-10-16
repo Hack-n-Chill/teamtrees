@@ -1,5 +1,5 @@
 import React from 'react';
-import { Jumbotron, Button } from 'reactstrap';
+import { Jumbotron} from 'reactstrap';
 import SocialLink from "./SocialLink"
 
 const Example = ({info, social}) => {
