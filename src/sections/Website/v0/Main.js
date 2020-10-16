@@ -6,15 +6,21 @@ import { compose } from "redux";
 import { firestoreConnect, isLoaded } from "react-redux-firebase";
 import Spinner1 from '../../../components/Spinner/Spinner1';
 import About from './About';
+import Education from './Education';
 
 const Main = ({dataAbout, dataEdu, dataExp, dataProj, dataSocial}) => {
     if(!isLoaded(dataSocial)) return <Spinner1 />
     // console.log(dataAbout, dataEdu, dataExp, dataProj, dataSocial)
-    console.log(dataAbout)
+    console.log(dataEdu)
     return (
         <>
         <NavbarExample info={dataAbout} />
+
+        <div className="container">
         <About info={dataAbout} />
+        <Education info={dataEdu}/>
+        </div>        
+        
         </>
     )
 }

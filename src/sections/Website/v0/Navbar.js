@@ -22,25 +22,8 @@ const Example = (props) => {
   return (
     <div>
       <Navbar color="light" light expand="md">
-        <NavbarBrand href="/">{info[0].fullname}</NavbarBrand>
-        <NavbarToggler onClick={toggle} />
-        <Collapse isOpen={isOpen} navbar>
-          <Nav className="mr-auto" navbar>
-            <NavItem>
-              <NavLink href="/components/">Education</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="#">Experience</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="#">Projects</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="#">Social</NavLink>
-            </NavItem>             
-          </Nav>
-          <NavbarText>Edit</NavbarText>
-        </Collapse>
+        <NavbarBrand href="/" className="text-center"><h4>{info[0].fullname}</h4></NavbarBrand>
+        <NavbarToggler onClick={toggle} />        
       </Navbar>
     </div>
   );
