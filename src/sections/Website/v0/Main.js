@@ -13,13 +13,13 @@ import Projects from './Projects';
 const Main = ({dataAbout, dataEdu, dataExp, dataProj, dataSocial}) => {
     if(!isLoaded(dataSocial)) return <Spinner1 />
     // console.log(dataAbout, dataEdu, dataExp, dataProj, dataSocial)
-    console.log(dataProj)
+    console.log(dataSocial)
     return (
         <>
         <NavbarExample info={dataAbout} />
 
         <div className="container">
-        <About info={dataAbout} />
+        <About info={dataAbout} social={dataSocial} />
         <Education info={dataEdu}/>
         <Experience info={dataExp}/>
         <Projects info={dataProj}/>

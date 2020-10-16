@@ -5,7 +5,7 @@ import {Button} from "reactstrap"
 const Projects = ({info}) => {
     return (
         <>
-        <Button color="success" className="mb-1 mt-1">Projects</Button>
+        <Button color="warning" className="mb-1 mt-1">Projects</Button>
          <CardsProj info={info}/>
          </>
     )

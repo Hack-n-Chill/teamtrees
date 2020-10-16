@@ -1,7 +1,8 @@
 import React from 'react';
 import { Jumbotron, Button } from 'reactstrap';
+import SocialLink from "./SocialLink"
 
-const Example = ({info}) => {
+const Example = ({info, social}) => {
   return (
     <div>
       <Jumbotron className="mt-2">
@@ -9,6 +10,8 @@ const Example = ({info}) => {
         <p className="lead">A very warm welcome to my personal website!</p>
         <hr className="my-2" />
   <p>{info[0].summary}</p>     
+
+      <SocialLink social={social} />
       </Jumbotron>
     </div>
   );

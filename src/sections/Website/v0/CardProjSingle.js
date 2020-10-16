@@ -8,11 +8,10 @@ const CardProjSingle = ({info}) => {
         <Card>
         <CardHeader><h4>{name}</h4></CardHeader>
         <CardBody>
-        <CardText>{summary}</CardText>
-    <CardTitle>{startDate}</CardTitle>
-    <CardText>{tech}</CardText>    
-    <CardText>{link}</CardText>
-          
+            <CardText>{summary}</CardText>
+            <CardTitle>{startDate}</CardTitle>
+            <CardText>{tech}</CardText>    
+            <CardText>{link}</CardText>          
         </CardBody>        
       </Card>
         </div>

@@ -1,10 +1,22 @@
 import React from 'react'
-import Jumbotron from "./Jumbotron"
+ import {Link} from "react-router-dom"
 
 const Website = () => {
-    return <> 
-        <Jumbotron />
-    </>
+    return <div className="container"> 
+       <div class="card text-center m-1">
+  <div class="card-header">
+    Template
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Version 0</h5>
+    <p class="card-text">A minimal portfolio for all users!</p>
+    <Link to="/v0" class="btn btn-primary">View</Link>
+  </div>
+  <div class="card-footer text-muted">
+  “ Choose a job you love, and you will never have to work a day in your life."
+  </div>
+</div>
+    </div>
 }
 
 export default Website

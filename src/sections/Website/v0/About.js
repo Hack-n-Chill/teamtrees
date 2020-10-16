@@ -1,10 +1,10 @@
 import React from 'react'
 import Jumbotron from "./Jumbotron"
 
-const About = ({info}) => {
+const About = ({info, social}) => {
     return (
         <>
-            <Jumbotron info={info}/>
+            <Jumbotron info={info} social={social}/>
         </>
     )
 }
