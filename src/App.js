@@ -16,9 +16,7 @@ import Website from "./sections/Website/Website"
 
 // v0
 import Main0 from "./sections/Website/v0/Main"
-import Education0 from "./sections/Website/v0/Education"
-import Experience0 from "./sections/Website/v0/Experience"
-import Project0 from "./sections/Website/v0/Projects"
+import Main1 from "./sections/Website/v1/src/App"
 
 function App() {
   return (
@@ -46,10 +44,8 @@ function App() {
           <Route exact path="/social" component={Social} />
           <Route exact path="/website" component={Website} />
 
-          <Route exact path="/v0" component={Main0} />
-          <Route exact path="/v0/education" component={Education0} />
-          <Route exact path="/v0/experience" component={Experience0} />
-          <Route exact path="/v0/projects" component={Project0} />
+          <Route exact path="/v0" component={Main0} />         
+          <Route exact path="/v1" component={Main1} />         
 
           <Route exact path="/" component={Dashboard} />
         </Switch>
